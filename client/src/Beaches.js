@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import {ClipLoader} from "react-spinners";
 
+
 const Beaches = () => {
   const [beaches, setBeaches] = useState(null);
   const [clicked, setClicked] = useState(false);

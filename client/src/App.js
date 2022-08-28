@@ -17,7 +17,6 @@ const App = () => {
         <Route path="/sights" element={<Sights />} />       
         <Route path="/my-trip" element={<YourTrip />} />  
         <Route path="/location/:_id" element={<LocationDetails />} />  
-
       </Routes>
     </Router>
   );

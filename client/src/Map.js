@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 
+
+
 const Map = () => {
   //get beaches
   const [beaches, setBeaches] = useState(null);
@@ -114,7 +116,11 @@ const Map = () => {
 
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBOUX3YfSVyI2n1CJBp4leUjjcZKnxsDb8",
+    // googleMapsApiKey: "AIzaSyBOUX3YfSVyI2n1CJBp4leUjjcZKnxsDb8",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    // googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+
+
   });
 
 
