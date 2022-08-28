@@ -116,11 +116,7 @@ const Map = () => {
 
 
   const { isLoaded } = useJsApiLoader({
-    // googleMapsApiKey: "AIzaSyBOUX3YfSVyI2n1CJBp4leUjjcZKnxsDb8",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    // googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
-
-
   });
 
 
