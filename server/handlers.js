@@ -1,7 +1,7 @@
 const { MongoClient, ObjectId } = require("mongodb");
 
-// require("dotenv").config();
-// const {MONGO_URI} = process.env;
+require("dotenv").config();
+const {MONGO_URI} = process.env;
 
 const options = {
   useNewUrlParser: true,
@@ -9,7 +9,7 @@ const options = {
 };
 //get all the data on every beach
 const getBeaches = async (req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Locations?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Locations");
     const beaches = await db.collection("locations").find({type:"beach"}).toArray();
@@ -24,7 +24,7 @@ const getBeaches = async (req, res) => {
 
 //get all the data on every sight
 const getSights = async (req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Locations?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Locations");
     const sights = await db.collection("locations").find({type: "sight"}).toArray();
@@ -38,7 +38,7 @@ const getSights = async (req, res) => {
 
 //get all the data on every landmark
 const getLandmarks = async (req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Locations?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Locations");
     const landmarks = await db.collection("locations").find({type: "landmark"}).toArray();
@@ -51,7 +51,7 @@ const getLandmarks = async (req, res) => {
 }
 //get data on one location
 const getLocation = async (req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Locations?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Locations");
     const _id = req.params._id;
@@ -66,7 +66,7 @@ const getLocation = async (req, res) => {
 }
 //get user information
 const getUserData = async(req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Planner?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Planner");
     const id = req.params.id;
@@ -80,7 +80,7 @@ const getUserData = async(req, res) => {
 }
 // get user by email
 const getUserEmail = async(req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Planner?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Planner");
     const email = req.body.email;
@@ -94,7 +94,7 @@ const getUserEmail = async(req, res) => {
 }
 // add user
 const addUser = async(req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Planner?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Planner");
     const {email, locations} = req.body;
@@ -109,7 +109,7 @@ const addUser = async(req, res) => {
 
 //add location to user's trip
 const addLocation = async(req, res) => {
-const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Planner?retryWrites=true&w=majority", options);
+const client = new MongoClient(MONGO_URI, options);
 await client.connect();
 const db = client.db("Planner");
 const {userId, locationId} = req.body;
@@ -134,7 +134,7 @@ client.close();
 const getLocationData = async(req,res) =>  {
 
 const {locations} = req.body;    
-const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Locations?retryWrites=true&w=majority", options);
+const client = new MongoClient(MONGO_URI, options);
 await client.connect();
 const db = client.db("Locations");
 const locationsMongoIds = locations.map((location) => ObjectId(location));
@@ -150,7 +150,7 @@ client.close();
 
 //delete location from trip
 const removeLocation = async(req, res) => {
-    const client = new MongoClient("mongodb+srv://irene:chickenwing@cluster0.dobcnbu.mongodb.net/Planner?retryWrites=true&w=majority", options);
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("Planner");
     const {userId, locationId} = req.body;
