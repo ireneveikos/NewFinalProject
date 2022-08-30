@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const { getBeaches, getSights, getLandmarks, getLocation, getUserData,  addLocation, getLocationData, removeLocation, getUserEmail, addUser} = require("./handlers");
-const PORT = 8000;
+const PORT = 7000;
 
 express()
   .use(morgan("tiny"))

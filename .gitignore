@@ -20,6 +20,9 @@
 # Private Node Modules
 node_modules/
 creds.js
+
+#handlers
+handlers.js
  
 # Private Files
 *.csv
@@ -27,7 +30,7 @@ creds.js
 *.tsv
 *.tsv.gz
 *.xlsx
- 
+
  
 # Mac/OSX
 .DS_Store
